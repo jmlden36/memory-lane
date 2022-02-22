@@ -1,7 +1,9 @@
+import * as c from './../actions/ActionTypes';
+
 export default (state = {}, action) => {
   const {title, description , date ,id} = action;
   switch (action.type) {
-    case 'ADD_MEMORY':
+    case c.ADD_MEMORY:
       return Object.assign({}, state, {
         [id]: {
           title: title,
@@ -10,6 +12,10 @@ export default (state = {}, action) => {
           id: id
         }
       });
+    case c.DELETE_MEMORY:
+      let newState = { ...state };
+      delete newState[id];
+      return newState;
     default:
       return state;
   }

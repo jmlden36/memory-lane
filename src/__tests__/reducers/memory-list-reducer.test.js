@@ -1,6 +1,17 @@
 import memoryListReducer from '../../reducers/memory-list-reducer';
 
 describe('memoryListReducer', () => {
+  const currentState = {
+    1: {title: "Dancing at band camp",
+    date: "January the fourtybillionth",
+    description: "this cool thing that happened this one time with these one people at band camp",
+    id: 1
+    },
+    2: {title: "Drinking at band camp",
+    date: "January the negative 7nth",
+    description: "this cool thing that happened this one time with these one people at band camp",
+    id: 2 }
+  }
 
   let action;
   const memoryData = {
@@ -29,6 +40,19 @@ describe('memoryListReducer', () => {
         description: description,
         id: id
       }
+    });
+  });
+
+  test('Should successfully delete a memory', () => {
+    action = {
+      type: 'DELETE_MEMORY',
+      id: 1
+    };
+    expect(memoryListReducer(currentState, action)).toEqual({
+      2: {title: "Drinking at band camp",
+    date: "January the negative 7nth",
+    description: "this cool thing that happened this one time with these one people at band camp",
+    id: 2 }      
     });
   });
 
