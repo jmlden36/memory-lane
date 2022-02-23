@@ -6,6 +6,7 @@ import EditMemoryForm from './EditMemoryForm';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 import * as a from './../actions';
+import { withFirestore } from 'react-redux-firebase';
 
 class MemoryControl extends React.Component {
   constructor(props) {
@@ -36,8 +37,15 @@ class MemoryControl extends React.Component {
   }
 
   handleChangingSelectedMemory = (id) => {
-    const selectedMemory = this.props.mainMemoryList[id];
-    this.setState({selectedMemory: selectedMemory});
+    this.props.firestore.get({collection: 'memories', doc: id}).then((memory) => {
+      const firestoreMemory = {
+        title: memory.get("title"),
+        description: memory.get("description"),
+        date: memory.get("date"),
+        id: memory.id
+      }
+      this.setState({selectedMemory: firestoreMemory });
+    });
   }
 
   HandleEditClick = () => {
@@ -102,4 +110,4 @@ const mapStateToProps = state => {
 }
 
 MemoryControl = connect(mapStateToProps)(MemoryControl);
-export default MemoryControl;
+export default withFirestore(MemoryControl);
