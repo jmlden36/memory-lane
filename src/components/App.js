@@ -3,20 +3,12 @@ import MemoryControl from "./MemoryControl";
 
 function App() {
   return (
-    <h1>I'm a react redux page</h1>
-  )
+    <React.Fragment>
+      <div className="container">
+        <MemoryControl />
+      </div>
+    </React.Fragment>
+  );
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-

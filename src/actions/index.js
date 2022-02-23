@@ -10,7 +10,7 @@ export const toggleForm = () => ({
 });
 
 export const addMemory = (memory) => {
-  const { title, date, description, id } = memory;
+  const { title, date, description, id } = memory; 
   return {
     type: c.ADD_MEMORY,
     title: title,

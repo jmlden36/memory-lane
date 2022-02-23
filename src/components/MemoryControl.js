@@ -85,7 +85,7 @@ class MemoryControl extends React.Component {
     return (
       <React.Fragment>
         {currentVisibleState}
-        <button onClick= {this.handleClick}>{buttonText}</button>
+        <button className="btn shadow" onClick= {this.handleClick}>{buttonText}</button>
       </React.Fragment>
     );
   }
