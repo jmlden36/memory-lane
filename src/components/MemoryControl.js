@@ -29,12 +29,10 @@ class MemoryControl extends React.Component {
     }
   }
 
-  handleAddingNewMemoryToList = (newMemory) => {
+  handleAddingNewMemoryToList = () => {
     const { dispatch } = this.props;
-    const action = a.addMemory(newMemory);
+    const action = a.toggleForm();
     dispatch(action);
-    const action2 = a.toggleForm();
-    dispatch(action2);
   }
 
   handleChangingSelectedMemory = (id) => {

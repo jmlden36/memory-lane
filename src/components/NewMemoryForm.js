@@ -1,27 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReusableForm from './ReusableForm';
-import { v4 } from 'uuid';
+import { useFirestore } from 'react-redux-firebase';
 
 function NewMemoryForm(props) {
-  function handleNewMemoryFormSubmission(e) {
-    e.preventDefault();
-    props.onNewMemoryCreation({
-      title: e.target.title.value,
-      description: e.target.description.value,
-      date: e.target.date.value,
-      id: v4()
-    });
+
+  const firestore = useFirestore();
+
+  function addMemoryToFirestore(event) {
+    event.preventDefault();
+    props.onNewMemoryCreation();
+    return firestore.collection('memories').add(
+      {
+        title: event.target.title.value,
+        description: event.target.description.value,
+        date: event.target.date.value,
+      }
+    );
   }
 
   return (
     <React.Fragment>
       <ReusableForm
-      formSubmissionHandler={handleNewMemoryFormSubmission}
+      formSubmissionHandler={addMemoryToFirestore}
       buttonText="Add" />
     </React.Fragment>
   );
-
 }
 
 NewMemoryForm.propTypes = {

@@ -18,7 +18,7 @@ describe('memory lane actions', () => {
     });
   });
 
-  it('deleteTicket should create DELETE_TICKET action', () => {
+  it('deleteMemory should create DELETE_Memory action', () => {
     expect(actions.deleteMemory(1)).toEqual({
       type: c.DELETE_MEMORY,
       id: 1
