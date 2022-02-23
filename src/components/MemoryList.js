@@ -36,7 +36,6 @@ function MemoryList(props) {
 }
 
 MemoryList.propTypes = {
-  MemoryList: PropTypes.object,
   onMemorySelection: PropTypes.func
 };
 
