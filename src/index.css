@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(img/memory.jpeg);
+  
 }
 
 code {
@@ -13,11 +15,12 @@ code {
 }
 
 .container {
-  max-width: 500px;
+  max-width: 700px;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
   border: 1px solid steelblue;
+  background-color: rgb(220, 230, 247);
   padding: 30px;
   border-radius: 5px;
 }
@@ -47,4 +50,8 @@ code {
 .btn-block {
   display: block;
   width: 100%;
+}
+
+.text-center {
+  font-family: 'Gill Sans', 'Gill Sans MT' ;
 }

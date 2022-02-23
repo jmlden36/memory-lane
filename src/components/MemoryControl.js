@@ -52,10 +52,7 @@ class MemoryControl extends React.Component {
     this.setState({editing: true});
   }
 
-  handleEditingMemoryInList =(memoryToEdit) => {
-    const { dispatch } =this.props;
-    const action = a.addMemory(memoryToEdit);
-    dispatch(action);
+  handleEditingMemoryInList =() => {
     this.setState({
       editing: false,
       selectedMemory: null
@@ -63,9 +60,7 @@ class MemoryControl extends React.Component {
   }
 
   handleDeletingMemory = (id) => {
-    const  { dispatch } = this.props;
-    const action = a.deleteMemory(id);
-    dispatch(action);
+    this.props.firestore.delete({collection: 'memories', doc: id});
     this.setState({selectedMemory: null});
   }
 

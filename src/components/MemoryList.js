@@ -14,6 +14,7 @@ function MemoryList(props) {
   if ( isLoaded(memories)) {
     return (
       <React.Fragment>
+        <h1 className="text-center">Memories</h1>
         <hr/>
         {memories.map((memory) => {
           return <Memory

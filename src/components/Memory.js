@@ -5,7 +5,7 @@ function Memory(props){
   return (
     <React.Fragment>
       <div onClick = {() => props.whenMemoryClicked(props.id)}>
-        <h3>{props.title}</h3>
+        <h3><strong>{props.title}</strong></h3>
         <h4>{props.description}</h4>
         <h4>{props.date}</h4>
       </div>
